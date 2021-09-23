@@ -1,0 +1,310 @@
+*{
+    margin : 0;
+    padding : 0;
+}
+body{
+    color : #fff;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+.body{
+    background-image: url(/images/earth1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.blur {
+    /* background: rgba(255, 255, 255, 0.2); Make sure this color has an opacity of less than 1 */
+    backdrop-filter: blur(8px); /* This be the blur */
+    width: 100%;
+}
+.container{
+    padding: 1.5rem 5.4rem 0;
+    width: calc(100% - 24rem);
+    margin: 0 auto;
+    height: 100%;
+    min-height: 100vh;
+    min-width: 1190px;
+    -webkit-overflow-scrolling: touch;
+}
+.networks{
+    width: 100%;
+    max-width: 1480px;
+    height: 50px;
+}
+.networks_main{
+    display: inline-block;
+    position: relative;
+    float: right;
+    width: 150px;
+    padding: 10px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.164);
+    border-radius: 10rem;
+    transition: border-color .1s ease-in;
+    text-align:center;
+    cursor: pointer;
+}
+.networks_main i{
+    margin-right: 15px;
+    -webkit-animation:blink 1.5s ease-in-out infinite alternate;
+    -moz-animation:blink 1.5s ease-in-out infinite alternate;
+    animation:blink 1.5s ease-in-out infinite alternate;
+}
+@-webkit-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@-moz-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+.networks_main:hover{
+    border: 1px solid #fff;
+}
+.serach_box{
+    border-radius: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 8rem;
+    line-height: 8rem;
+    position: relative;
+    display: inline-block;
+    max-width: 46.7rem;
+    width: 100%;
+}
+.form_input{
+    width: 90%;
+    margin: 0 auto;
+}
+.hash_input{
+    margin: 43px auto;
+    background-color: hsla(0,0%,100%,.1);
+    color: #fff;
+    padding: 0 5rem 0 4rem;
+    border-radius: 4px;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-style: normal;
+    height: 4rem;
+    width: 70%;
+    border: none;
+}
+.hash_input::placeholder{
+    font-size: 18px;
+    font-weight: bolder;
+    color: rgba(133, 133, 133, 0.774);
+}
+.hash_button{
+    width: 7.4rem;
+    height: 4.2rem;
+    font-size: 0;
+    color: transparent;
+    vertical-align: middle;
+    border-radius: 0;
+    background-size: 2rem;
+    right: 6px;
+    top: 6px;
+    border-radius: 4px;
+    border: none;
+    background-color: rgb(18, 29, 51);
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+.hash_button:hover{
+    background-color: #54679b;
+}
+.hash_button i{
+    font-size: 30px;
+    color: rgb(180, 180, 180);
+}
+/* 예진 */
+.indicators{
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+    height: 240px;
+}
+.blockheight_indicator{
+    width: 25%;
+    /* padding-right: 10px; */
+    float: left;
+    height: 200px;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 4px;
+    background-color: hsla(0,0%,100%,.03);
+}
+.mainbox_title{
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.blockheight_view{
+    margin: 46px 0 27px;
+    font-size: 3rem;
+    /* font-weight: 400; */
+}
+.blockheight_view i {
+    color: #33ffd9;
+}
+.network_indicator{
+    width: 64%;
+    /* padding: 0 5px; */
+    float: left;
+    height: 200px;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 4px;
+    background-color: hsla(0,0%,100%,.03);
+}
+.network_boxes{
+    margin-left: -8px;
+}
+.nework_indicator_box{
+    padding: 0 8px;
+    width: 30%;
+    float: left;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+.nework_indicator_box> div{
+    padding-top: 25px;
+    height: 122px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 5%);
+    background-image: linear-gradient(223deg,hsla(0,0%,100%,.08),hsla(0,0%,100%,.01));
+}
+.nework_indicator_box h3{
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.nework_indicator_box h4{
+    line-height: 1.5;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+/* 민기 */
+.transactions{
+    width: 1180px;
+    margin: 0 auto;
+}
+.ts_box{
+    overflow: hidden;
+    position: relative;
+    padding: 22px 30px 25px;
+    border-radius: 4px;
+    background-color: hsla(0,0%,100%,.03);
+}
+.ts_title{
+    margin-bottom: 1.5rem;
+}
+.ts_body{
+    background-color: transparent;
+    padding: 0 0 23px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+.ts_body_in{
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    border-collapse: collapse;
+}
+.table_head{
+    border-color: hsla(0,0%,100%,.08);
+    height: 45px;
+    border-bottom: 1px solid #e1e1e7;
+    vertical-align: middle;
+}
+.head_t{
+    margin-right: -6px;
+    font-weight: 400;
+    color: rgba(132,171,255,.7);
+    display: inline-block;
+    height: 100%;
+    line-height: 45px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    vertical-align: middle;
+    font-size: 12px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.head0{
+    width: 20%;
+}
+.head1{
+    width: 24%;
+}
+.head2{
+    width: 16%;
+}
+.head3{
+    width: 14%;
+}
+.head4{
+    width: 24%;
+}
+
+.table_tbody{
+    /* height: 51.9rem; */
+}
+.table_line{
+    /* height: 42px; */
+    height: 50px;
+    margin-top: -1px;
+    border-bottom: 1px solid #f8f8f8;
+    border-color: hsla(0,0%,100%,.08);
+}
+.body_t{
+    /* width: 25%; */
+    font-weight: 400;
+    color: fff;
+    display: inline-block;
+    height: 100%;
+    line-height: 45px;
+    /* text-transform: uppercase; */
+    letter-spacing: .4px;
+    vertical-align: middle;
+    font-size: 12px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.hash_resize{
+    color: #fff;
+    background-color: hsla(0,0%,100%,.1);
+    width: 135px;
+    height: 32px;
+    line-height: 32px;
+    /* width: 110px;
+    height: 24px;
+    line-height: 24px; */
+    border-radius: 2px;
+    margin: 0 auto;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 400;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.address_resize{
+    width: 140px;
+    cursor: pointer;
+    position: relative;
+}
+.address_copy{
+    opacity: 0;
+    width: 140px;
+    position: absolute;
+}

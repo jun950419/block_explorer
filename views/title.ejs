@@ -1,0 +1,27 @@
+<div class="navbar">
+    <div class="navbar_logo">
+        <a href="/">
+            <img src="/images/timo.png">
+        </a>
+    </div>
+    <ul class="navbar_menu">
+        <li><a href="/sendfrom">send</a></li>
+        <li><a href="/exchange">exchange</a></li>
+        <form class="search_form" action="/search" method="POST">
+            <button type="submit" class="su"><i class="fas fa-search search_i"></i></button>
+            <input class="search" type="text" name="block_num" placeholder="Search by Block# (greater than 4)">
+        </form>
+        <% if(logined == undefined) { %>
+        <li><a href="/signin">Sign In</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+        <% } else { %>
+        <li><a href="/signin/logout">Logout</a></li>
+        <% } %>
+    </ul>
+    <a href="#" class="navbar__toogleBtn">
+        <i class="fas fa-bars"></i>
+    </a>
+</div>
+<link rel="stylesheet" href="/styles/title.css"/>
+<script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+<script src="/javascripts/title.js"></script>

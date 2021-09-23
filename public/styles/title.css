@@ -1,0 +1,106 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    list-style: none;
+}
+.navbar{
+    font-weight: bolder;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #3e579b; */
+    background-color: rgb(18, 29, 51);
+    padding: 8px 12px;
+    /* border-bottom: 1px solid #eeee; */
+    font-size: 15px;
+    line-height: 1.7;
+}
+.su{
+    background-color: transparent;
+    color: #eee;
+    border: none;
+    padding: 5px;
+    height: 100%;
+}
+.navbar_logo img{
+    height: 60px;
+}
+.navbar a{
+    text-decoration: none;
+    color: #fff;
+}
+.navbar_menu{
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+}
+.navbar_menu li{
+    padding: 8px 12px;
+    margin-right: 5px;
+}
+.navbar_menu li:hover{
+    background-color: #54679b;
+    border-radius: 4px;
+}
+.search_form{
+    display: absolute;
+    /* background-color: #2b4aa1; */
+    background-color: rgba(240, 242, 247, 0.1);
+    padding: 5px 5px;
+    border-radius: 5px 5px;
+    margin-right: 5px;
+    height: 30px;
+}
+.search_i{
+    height: 30px;
+}
+.search{
+    width: 250px;
+    height: 30px;
+    border: none;
+    /* background-color: #2b4aa1; */
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 450;
+    color: #fff;
+    outline: none;
+}
+.search::placeholder{
+    color: #fff;
+}
+.navbar__toogleBtn{
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: #24c0eb;
+}
+@media screen and (max-width: 875px) {
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+    .navbar_menu{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .navbar_menu li{
+    width: 100%;
+    text-align: center;
+    }
+    .navbar__toogleBtn{
+    display: block;
+    }
+    .navbar_menu.active{
+    display: flex;
+    }
+}
+  
+  

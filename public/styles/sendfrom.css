@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 200;
+    src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3i94_wlxdr.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url(https://fonts.gstatic.com/s/sourcesanspro/v14/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype');
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    font-weight: 300;
+    background: linear-gradient(to bottom right, #1D2037 0%, #3d405cce 100%);
+}
+
+body ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    font-weight: 300;
+}
+
+body :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    opacity: 1;
+    font-weight: 300;
+}
+
+body ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    opacity: 1;
+    font-weight: 300;
+}
+
+body :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    font-weight: 300;
+}
+
+.container {
+    min-width: 600px;
+    max-width: 700px;
+    height: 420;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+.container > h1 {
+    margin: 0;
+    padding: 20px 0 20px 0;
+    color: #EEA422;
+    text-align: left;
+    font-size: 40px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-put;
+}
+
+.myInfo > li {
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.myInfo > li > b {
+    margin-right: 15px;
+}
+
+.sendForm {
+    width: 100%;
+    padding: 100px 0 100px 0;
+    margin-left: 100px;
+}
+
+.recvAddr {
+    margin-right: 20px;
+    padding: 10px 80px 5px 0;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.sendForm input[type="submit"] {
+    padding: 5px;
+    outline: none;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.sendForm input[type="submit"]:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
+} 
+
+form {
+    padding: 20px 0;
+    /* padding: 20px; */
+    margin: 0;
+
+}
+
+form input[type="text"] {
+    -webkit-appearance: none;
+        -moz-appearance: none;
+            appearance: none;
+    outline: 0;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 250px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    transition-duration: 0.25s;
+    font-weight: 300;
+    vertical-align: middle;
+}
+
+form input:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+form input[type="text"]:focus {
+    background-color: white;
+    width: 300px;
+    color: #1D2037;
+}
+
+
+@-webkit-keyframes square {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-700px) rotate(600deg);
+    }
+    }
+    @keyframes square {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-700px) rotate(600deg);
+    }
+}

@@ -1,0 +1,118 @@
+*{
+    margin : 0;
+    padding: 0;
+}
+
+/* index */
+
+.container{
+    width: 87rem;
+    margin: 72px auto;
+}
+.intro{
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 25px;
+    /* color: rgb(12, 108, 242); */
+    letter-spacing: 0.5px;
+    color: rgb(96 107 123);
+}
+.intro img{
+    padding: 15px;
+    width: 50px;
+    height: 50px;
+}
+
+/* getblockchaininfo */
+
+.body_table{
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    /* left: 24rem; */
+    /* width: calc(100% - 24rem); */
+    width: 1700px;
+    /* height: 100%; */
+    /* min-height: 100vh; */
+    -webkit-overflow-scrolling: touch;
+    padding: 1.5rem 5.4rem 3rem;
+    border: 1px solid rgb(206, 204, 204);
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 15px 15px;
+}
+.chaininfo{
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+    line-height: 6.5rem;
+    border-bottom: 1px solid #cfcfcf;
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: Roboto;
+}
+.chaininfo img{
+    margin-right: 10px;
+}
+.chain_body{
+    position: relative;
+    padding: 3rem 4rem;
+}
+.chain_block{
+    padding: 5px 5px;
+    display: flex;
+    line-height: 30px;
+    font-size: 20px;
+    /* font-size: 1.3rem; */
+    font-weight: 400;
+}
+.chain_block:first-child{
+    margin-bottom: 1rem;
+}
+.chain_block p{
+    font-size: 25px;
+    font-weight: bolder;
+}
+.block_title{
+    padding: 5px 5px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 600px;
+    color: #9699b2;
+    font-size: 17px;
+    /* font-size: 1.3rem; */
+    font-weight: 700;
+    font-family: Roboto;
+    line-height: 1.4;
+}
+.block_comment{
+    padding: 5px 5px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 17px;
+    /* width: 500px; */
+    width: 1100px;
+}
+#input_text{
+    border: 1px solid #9699b2;
+    padding: 5px 5px;
+    border-radius: 5px 5px;
+    font-size: 15px;
+}
+#input_submit{
+    padding: 5px 5px;
+    border-radius: 5px 5px;
+    background-color: #9699b2;
+    color: #fff;
+    font-weight: bolder;
+}
+#answerHash{
+    border: none;
+    padding: 5px 5px;
+    border-radius: 5px 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    width: 750px;
+}

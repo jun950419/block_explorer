@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>SendFrom</title>
+    <link rel="stylesheet" href="/styles/sendfrom.css">
+    <link rel="shortcut icon" href="/images/timo.ico" type="image/x-icon">
+    <link rel="icon" href="/images/timo.ico" type="image/x-icon">
+</head>
+<body>
+    <%- include('title') %>
+    <div class="container">
+        <h1>Send Coin</h1>
+        <div class="myInfo">
+            <li>
+                <b>USERNAME</b>
+                <span class="userId"><%= userId %></span>
+            </li>
+            <li>
+                <b>ADDRESS&nbsp;&nbsp;&nbsp;</b>
+                <span><%= addr %></span>
+            </li>
+            <li>
+                <b>BALANCE&nbsp;&nbsp;&nbsp;</b>
+                <span class="balance"></span>
+            </li>
+        </div>
+        <div class="sendForm">
+            <form accept="/sendfrom" method="post">
+                <select class="recvAddr" name="recvAddr">
+                    <% users.forEach((user, index) => { %>
+                        <option value="<%= user.addr %>"><%= user.id %></option>
+                    <% }) %>
+                </select>
+                <input type="text" class="coinCount" name="coinCount" placeholder="coinCount" autocomplete="off"/>
+                <input type="submit" value="send" class="send"/>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="/javascripts/sendfrom.js"></script>
+<script src="/javascripts/jquery-3.5.1.min.js"></script>
+</html>

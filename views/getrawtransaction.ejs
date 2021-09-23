@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/search.css">
+    <link rel="shortcut icon" href="/images/timo.ico" type="image/x-icon">
+    <link rel="icon" href="/images/timo.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <%- include('title') %>
+    <div class="body">
+        <div class="blur">
+            <div class="container">
+                <div class="block_detail">
+                    <header class="block_detail_header">
+                        <h2 class="block_detail_title">Consensus Node</h2>
+                        <span class="block_detail_blockheight">0x<%= hash  %> </span>
+                    </header>
+                        <div class="block_detail_overview">
+                            <h3 class="overview_title">Overview</h3>
+                            <div class="overview_content">
+                                <div class="overview_row">
+                                    <div class="overview_row_label">txid</div>
+                                    <div class="overview_row_value"><%= data.txid%> </div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Version </div>
+                                    <div class="overview_row_value"><%= data.version %> </div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Locktime</div>
+                                    <div class="overview_row_value"><%= data.locktime %> </div>
+                                </div>
+                             
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Size</div>
+                                    <div class="overview_row_value"><%= data.size %></div>
+                                </div>
+                              
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Hex</div>
+                                    <div class="overview_row_value" style="text-overflow: ellipsis; overflow: hidden;"><%= hex %></div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Time </div>
+                                    <div class="overview_row_value"><%= time %> </div>
+                                </div>
+                                <br>
+
+                                <h4>Inputs</h4>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Address </div>
+                                    <div class="overview_row_value"><%= data.vout[0].scriptPubKey.addresses %> </div>
+                                </div>
+                                <% if(data.vin[0].coinbase == undefined){ %>
+                                <% }else{ %>    
+                                    <div class="overview_row">
+                                        <div class="overview_row_label">Amount</div>
+                                        <div class="overview_row_value"> <%= data.vout[0].value%></div>
+                                    </div>
+                                <%} %> 
+                                <% if(data.vin[0].coinbase != undefined){ %>
+                                <% }else{ %>
+                                    <div class="overview_row">
+                                        <div class="overview_row_label">Amount</div>
+                                        <div class="overview_row_value"><%= data.vout[1].value%></div>
+                                    </div>
+                                <%} %> 
+
+                                <% if(data.vin[0].coinbase != undefined){ %>
+                                    
+                                <% }else{ %>
+                                    <h4>Outputs</h4>
+                                    <div class="overview_row">
+                                        <div class="overview_row_label">Address to</div>
+                                        <div class="overview_row_value"><%= data.vout[1].scriptPubKey.addresses %> </div>
+                                    </div>
+    
+                                    <div class="overview_row">
+                                        <div class="overview_row_label">Fee</div>
+                                        <div class="overview_row_value"><%= data.vout[0].value%></div>
+                                    </div>
+                                <% } %>
+                                
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timocoin API</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/search.css">
+    <link rel="shortcut icon" href="/images/timo.ico" type="image/x-icon">
+    <link rel="icon" href="/images/timo.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        function paste(i){
+            var copyText = document.getElementById(`address_input${i}`);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("주소복사! " + copyText.value);
+        }
+    </script>
+</head>
+<body>
+    <%- include('title') %>
+    <div class="body">
+        <div class="blur">
+            <div class="container">
+                <div class="block_detail">
+                    <header class="block_detail_header">
+                        <h2 class="block_detail_title">Block</h2>
+                        <span class="block_detail_blockheight">#<%=block_info.height%></span>
+                    </header>
+                    <!-- <div class="block_detail_content"> -->
+                        <div class="block_detail_overview">
+                            <h3 class="overview_title">Overview</h3>
+                            <div class="overview_content">
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Time</div>
+                                    <div class="overview_row_value"><%= block_info.time %></div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Hash</div>
+                                    <div class="overview_row_value"><%= block_info.hash %></div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Parent Hash</div>
+                                    <div class="overview_row_value"><%= block_info.previousblockhash %></div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Difficulty</div>
+                                    <div class="overview_row_value"><%= block_info.difficulty %></div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Block Reward</div>
+                                    <div class="overview_row_value"><%= block_info.amount %> TMC</div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Version</div>
+                                    <div class="overview_row_value"><%= block_info.version %></div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Merkle root</div>
+                                    <div class="overview_row_value"><%= block_info.merkleroot %></div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Confirmations</div>
+                                    <div class="overview_row_value"><%= block_info.confirmations %></div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Size</div>
+                                    <div class="overview_row_value"><%= block_info.size %> Bytes</div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Weight</div>
+                                    <div class="overview_row_value"><%= block_info.weight %> WU</div>
+                                </div>
+                                <div class="overview_row">
+                                    <div class="overview_row_label">Bits</div>
+                                    <!-- <div class="overview_row_value"><%= block_info.bits %></div> -->
+                                    <div class="overview_row_value"><%= parseInt(block_info.bits, 16).toLocaleString('ko-KR') %></div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timocoin API</title>
+    <!-- <link rel="stylesheet" href="/styles/index.css"/> -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="shortcut icon" href="/images/timo.ico" type="image/x-icon">
+    <link rel="icon" href="/images/timo.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        function paste(i){
+            var copyText = document.getElementById(`address_input${i}`);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("주소복사! " + copyText.value);
+        }
+        $(function () {
+            setInterval(() => {
+                $.ajax({
+                    url: '/block_transaction',
+                    dataType: 'json',
+                    type: 'GET'
+                })
+                .done(function (result) {
+                    $('.table_line').remove();
+                    for (let i = 0; i < 10; i++) {
+                        console.log('안될 때!!', result.sort_list[i]);
+                        if(result.sort_list[i] != undefined) {
+                        let rowHtml = `<div class="table_line"><div class="head0 body_t">${result.sort_list[i].blockheight}</div>`;
+                        rowHtml += `<div class="head1 body_t body1"><a href="/getrawtransaction/${result.sort_list[i].hex}/${result.sort_list[i].blockhash}/${result.sort_list[i].mo_time}"><div class="hash_resize">0x${result.sort_list[i].blockhash.substring(0, 3)}...${result.sort_list[i].blockhash.substring(result.sort_list[i].blockhash.length - 3, result.sort_list[i].blockhash.length)}</div></a></div>`;
+                        rowHtml += `<div class="head2 body_t">${result.sort_list[i].mo_time}</div>`;
+                        rowHtml += `<div class="head3 body_t">${result.sort_list[i].amount}</div>`;
+                        rowHtml += `<input type="text" class="address_copy" id="address_input${i}" value="${result.sort_list[i].vout[0].scriptPubKey.addresses[0]}">`;
+                        rowHtml += `<div class="head4 body_t"><div onClick="paste(${i})" class="hash_resize address_resize">0x${result.sort_list[i].vout[0].scriptPubKey.addresses[0].substring(0, 3)}...${result.sort_list[i].vout[0].scriptPubKey.addresses[0].substring(result.sort_list[i].vout[0].scriptPubKey.addresses[0].length - 3, result.sort_list[i].vout[0].scriptPubKey.addresses[0].length)}</div></div>`;
+                        rowHtml += `</div>`;
+                        $(".table_tbody").append(rowHtml);
+                        }
+                    }
+                    $(".avg_block > h3 > span").remove();
+                    let rowHtml2 = `<span>${result.avg_time}</span>`;
+                    $(".avg_block > h3").append(rowHtml2);
+                });
+            }, 1000);
+            setInterval(()=>{
+                $.ajax({
+                    url: '/block_interval',
+                    dataType: 'json',
+                    type: 'GET'
+                })
+                    .done(function(result){
+                        $(".blockheight_view > span").remove();
+                        let rowHtml1 = `<span>${result.blocks}</span>`;
+                        $(".blockheight_view").append(rowHtml1);
+
+                        // $(".avg_block > h3 > span").remove();
+                        // let rowHtml2 = `<span>${result.blocktime}</span>`;
+                        // $(".avg_block > h3").append(rowHtml2);
+
+                        $(".network_connect > h3 > span").remove();
+                        let rowHtml3 = `<span>${result.connections}</span>`;
+                        $(".network_connect > h3").append(rowHtml3);
+
+                        $(".network_difficulty > h4 > span").remove();
+                        let rowHtml4 = `<span>${result.difficulty}</span>`;
+                        $(".network_difficulty > h4").append(rowHtml4);
+                    });
+            }, 1000);
+
+        })
+    </script>
+</head>
+<body>
+    <%- include('title') %>
+    <div class="body">
+        <div class="blur">
+            <div class="container">
+                <div class="networks">
+                    <div class="networks_main">
+                        <i class="fas fa-wifi"></i><%= getblockchaininfo.chain %> network
+                    </div>
+                </div>
+                <div class="Main_page">
+                    <div class="search_box">
+                        <form action="/search" method="POST">
+                            <div class="form_input">
+                                <input type="text" class="hash_input" name="block_num" placeholder="Search by Block# (greater than 4)">
+                                <button type="submit" class="hash_button"><i class="fas fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="indicators">
+                        <div class="blockheight_indicator">
+                            <h4 class="mainbox_title">Block Height</h4>
+                            <div class="blockheight_view">
+                                <i class="fab fa-hive"></i> <span><%= getblockchaininfo.blocks%></span>
+                            </div>
+                        </div>
+                        <div class="network_indicator">
+                            <h4 class="mainbox_title">Block Information</h4>
+                            <div class="network_boxes">
+                                <div class="nework_indicator_box">
+                                    <div>
+                                        <h3 class="network_connect"><span><%= getnetworkinfo.connections %></span></h3>
+                                        <h6>Consensus Nodes</h6>
+                                    </div>
+                                </div>
+                                <div class="nework_indicator_box">
+                                    <div class="network_difficulty">
+                                        <h4><span><%= difficulty %></span></h4>
+                                        <h6>Difficulty</h6>
+                                    </div>
+                                </div>
+                                <div class="nework_indicator_box">
+                                    <div class="avg_block">
+                                        <h3><span>...</span></h3>
+                                        <h6>Avg Block Time
+                                            <br>(recent 10 blocks)</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transactions">
+                        <div class="ts_box">
+                            <header class="ts_title">Recent Transactions</header>
+                            <div class="ts_body">
+                                <div class="ts_body_in">
+                                    <div class="table_head">
+                                        <div class="head0 head_t">Block</div>
+                                        <div class="head1 head_t">BlockHash</div>
+                                        <div class="head2 head_t">Time</div>
+                                        <div class="head3 head_t">Amount</div>
+                                        <div class="head4 head_t">Address</div>
+                                    </div>
+                                    <div class="table_tbody">
+                                        <div class="table_line"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
